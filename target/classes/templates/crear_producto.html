@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Productos</title>
+	<link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+	<div id="principal">
+		<h1>Productos</h1>
+		<div>
+			<table id="tabla-productos">
+				<tr>
+					<th title="Identificador">Id.</th>
+					<th>Nombre</th>
+					<th>Descripción</th>
+					<th>PVP</th>
+					<th>SN</th>
+					<th>Imagen</th>
+					<th>Color</th>
+					<th>Stock</th>
+					<th title="Producto de temporada">Temp.</th>
+					<th title="Rebajado">Reb.</th>
+					<th title="Categoría">Cat.</th>
+					<th title="Tipo de cliente">T.C.</th>
+					<th>Acción</th>
+					<th>Acción</th>
+				</tr>
+				<tr th:each="producto: ${listado_productos}">
+					<td class="derecha" th:text="${producto.identificador}" />
+					<td th:text="${producto.nombre}" />
+					<td th:text="${producto.descripcion}" />
+					<td class="derecha" th:text="${producto.pvp}+'€'" />
+					<td th:text="${producto.sn}" />
+					<td><img th:src="${producto.imagen}" width='100px' /></td>
+					<td th:text="${producto.color_predominante}" />
+					<td th:text="${producto.stock}" />
+					<td th:text="${producto.temporada} ? 'Sí': 'No'" />
+					<td th:text="${producto.rebajado} ? 'Sí' : 'No'" />
+					<td th:text="${producto.id_categoria}" />
+					<td th:text="${producto.id_tipo_cliente}" />
+					<td>Borrar</td>
+					<td>Modificar</td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<form method="get" action="./adminProductos">
+				<input type="text" class="input-producto" name="nombre" placeholder="Nombre de producto" size="50">
+				<br>
+				<input type="text" class="input-producto" name="descripcion" placeholder="Descripción del producto" size="100">
+				<br>
+				<input type="number" class="input-producto" name="pvp" placeholder="PVP" min="1" max="999">
+				<br>
+				<input type="text" class="input-producto" name="sn" placeholder="Número de Serie">
+				<br>
+				<input type="text" class="input-producto" name="imagen" placeholder="URL de la imagen" size="110">
+				<br>
+				<label for="color_predominante">Color Predominante:</label>
+				<input type="color" class="input-producto" name="color_predominante" id="color_predominante">
+				<br>
+				<input type="number" class="input-producto" name="stock" placeholder="Stock">
+				<br>
+				<label for="temporada">Temporada:</label>
+				<input type="checkbox" class="input-producto" name="temporada" id="temporada">
+				<br>
+				<label for="rebajado">Rebajado:</label>
+				<input type="checkbox" class="input-producto" name="rebajado" id="rebajado">
+				<br>
+				<input type="number" class="input-producto" name="id_categoria"
+					placeholder="Identificador de categoría">
+				<br>
+				<input type="number" class="input-producto" name="id_tipo_cliente"
+					placeholder="Identificador de tipo de cliente">
+				<br>
+				<input type="submit" value="Crear" id="bCrear">
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>

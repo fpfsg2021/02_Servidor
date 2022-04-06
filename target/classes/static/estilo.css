@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+#principal {
+	width:1000px;
+	margin:auto;
+}
+
+.derecha {
+	text-align:right;
+}
+
+#tabla-productos {
+	width:100%;
+}
+
+td {
+	background-color:rgb(214, 214, 214);
+	color:black;
+	font-size:0.8em;
+	padding:4px;
+}
+tr:nth-child(odd){
+	background-color: lime;
+}
+
+input {
+	padding:10px;
+	margin-top:10px;
+}
+
+#bCrear {
+	background-color:orange;
+	color:white;
+	width:100%;
+	padding:20px;
+}

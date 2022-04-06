@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorías</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+	<h1>Categorias</h1>
+	<p th:text="${nombre}">xx</p>
+    <div>
+        <table>
+            <tr>
+                <th>Identificador</th>
+                <th>Nombre</th>
+                <th>Imagen</th>
+                <th>Acción</th>
+                <th>Acción</th>
+            </tr>
+            <tr th:each="categoria: ${tipos_categorias}">
+    			<td th:text="${categoria.identificador}" />
+    			<td th:text="${categoria.nombre}" />
+    			<td th:text="${categoria.imagen}" />
+    			<td><a th:href="@{borrarCategorias(id=${categoria.identificador})}">Borrar</a></td>
+    			<td>Modificar</td>
+			</tr>
+        </table>
+    </div>
+    <div>
+        <form method="get" action="/crearCategorias">
+            <input type="text" name="nombre" placeholder="Nombre de la categoría">
+            <input type="text" name="imagen" placeholder="Nombre de la imagen">
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+</body>
+</html>

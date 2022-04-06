@@ -1,0 +1,28 @@
+#main {
+    width: 1024px;
+    margin: auto;
+}
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;/* Ajusta con espacio entre fichas */
+ }
+  
+ .card {
+     flex: 0 1 30%; /* 0-flex-grow (crece) 1-flex-shrink (encoge) flex-basics (tamaño) */
+     margin-bottom: 10px;
+     padding: 15px;
+     background-color: rgb(212, 212, 212);
+     box-shadow: 2px 2px rgba(100, 100, 100, 0.5);
+     text-align:center;
+}
+
+ .card a{
+ 	text-decoration: None;
+ 	color:black;
+ }
+
+.card:hover {
+	background-color: rgb(150,150,150);
+}
+ 

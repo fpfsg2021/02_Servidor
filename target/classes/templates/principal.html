@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Estefashion</title>
+	<style>
+		#contenedor {
+			width: 1000px;
+			margin: auto;
+		}
+
+		header {
+			width: 100%;
+			background-color: cornflowerblue;
+			color: white;
+			text-align: center;
+			padding: 1em 0 1em 0;
+			border: 20px;
+			border-style: dotted none dotted none;
+			border-color: pink;
+		}
+
+		nav {
+			width: 100%;
+			background-color: rgb(29, 176, 29);
+			padding-top: 1em;
+			padding-bottom: 1em;
+		}
+
+		nav ul li {
+			display: inline;
+		}
+
+		nav button {
+			padding: 10px;
+			margin-right: 80px;
+		}
+
+		footer {
+			width: 100%;
+			background-color: cornflowerblue;
+			height: 10em;
+		}
+
+		main {
+			margin-top: 10px;
+		}
+
+		.cards {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			/* Ajusta con espacio entre fichas */
+		}
+
+		.card {
+			flex: 0 1 25%;
+			/* 0-flex-grow (crece) 1-flex-shrink (encoge) flex-basics (tamaño) */
+			margin-bottom: 10px;
+			margin-right: 2px;
+			padding: 15px;
+			box-shadow: 2px 2px rgba(100, 100, 100, 0.5);
+		}
+		.card img {
+			width: 100%;
+		}
+		.nombre-producto {
+			width: 100%;
+			text-align: center;
+		}
+		.precio-producto {
+			width: 100%;
+			text-align: center;
+			font-weight: bold;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="contenedor">
+		<header>
+			<h1>Estefashion</h1>
+		</header>
+		<nav>
+			<ul>
+				<li><button>CAMISAS</button></li>
+				<li><button>CAMISETAS</button></li>
+				<li><button>PANTALONES</button></li>
+				<li><button>CALZADO</button></li>
+				<li><button>COMPLEMENTO</button></li>
+			</ul>
+		</nav>
+		<main>
+			<section class="cards">
+				<div class="card" th:each="producto: ${listado_productos}">
+					<div>
+						<img th:src="${producto.imagen}"/>
+					</div>
+					<div class="nombre-producto" style="font-size:1.5em">
+						<span th:text="${producto.nombre}"></span>
+					</div>
+					<div class="nombre-producto" style="font-size:0.7em; color:#888">
+						<span th:text="${producto.descripcion}"></span>
+					</div>
+					<div class="precio-producto">
+						<span th:text="${producto.pvp}+€"></span>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer>Footer</footer>
+	</div>
+</body>
+
+</html>
